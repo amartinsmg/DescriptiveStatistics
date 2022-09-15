@@ -1,0 +1,22 @@
+{
+  "name": "descriptive_statistics",
+  "version": "1.0.0",
+  "main": "src/script.js",
+  "scripts": {
+    "test": "node src/test/main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amartinsmg/DescriptiveStatistcs.git"
+  },
+  "author": "amartinsmg",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/amartinsmg/DescriptiveStatistcs/issues"
+  },
+  "homepage": "https://github.com/amartinsmg/DescriptiveStatistcs#readme",
+  "devDependencies": {
+    "wasm2wat": "^1.1.1",
+    "wat2wasm": "^3.0.0"
+  }
+}
