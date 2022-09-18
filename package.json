@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "src/script.js",
   "scripts": {
+    "build": "tsc src/script.ts --target esnext --outDir build/assets && cp src/index.html build",
     "test": "node src/test/main.js"
   },
   "repository": {
@@ -16,6 +17,8 @@
   },
   "homepage": "https://github.com/amartinsmg/DescriptiveStatistcs#readme",
   "devDependencies": {
+    "@types/node": "^18.7.18",
+    "typescript": "^4.8.3",
     "wasm2wat": "^1.1.1",
     "wat2wasm": "^3.0.0"
   }
