@@ -1,6 +1,6 @@
 const { ok: assert } = require("assert"),
   { readFileSync } = require("fs"),
-  { getArray } = require("../get_array");
+  { getArray } = require("../utils");
 
 function roundTo(num, decimalPlaces) {
   let base10 = 10 ** decimalPlaces,
