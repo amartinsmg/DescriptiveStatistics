@@ -5,7 +5,7 @@ const CssMinimizerWebpack = require("css-minimizer-webpack-plugin"),
   TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = {
-  entry: "./src/script.ts",
+  entry: "./src/main.ts",
   output: {
     filename: "assets/bundle.js",
     path: path.resolve(__dirname, "build"),
