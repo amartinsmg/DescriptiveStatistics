@@ -1,7 +1,7 @@
 {
   "name": "descriptive_statistics",
   "version": "1.0.0",
-  "main": "src/script.js",
+  "main": "src/main.ts",
   "scripts": {
     "build": "webpack",
     "test": "node src/test/main.js"
