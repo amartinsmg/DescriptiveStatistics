@@ -1,3 +1,5 @@
+require("./main.css");
+
 type func1 = (pointer: number, length: number) => number;
 type func2 = (pointer: number, length: number, nOfModes: number) => number;
 
@@ -42,9 +44,7 @@ async function main() {
       "#arithmetic-mean"
     ) as HTMLElement,
     ErrFeedbackDiv = document.querySelector("#err-feedback") as HTMLElement,
-    OutGroupDivs = document.querySelectorAll(
-      ".out-group"
-    ) as NodeListOf<HTMLElement>,
+    OutEl = document.querySelector("#out") as HTMLElement,
     HarmonicMeanDiv = document.querySelector("#harmonic-mean") as HTMLElement,
     GeometricMeanDiv = document.querySelector("#geometric-mean") as HTMLElement,
     MedianDiv = document.querySelector("#median") as HTMLElement,
@@ -123,7 +123,7 @@ async function main() {
           STANDARD_DEVIATION = SAMPLE
             ? sampleStandardDeviation(...Args)
             : standardDeviation(...Args);
-        OutGroupDivs.forEach((el) => el.classList.remove("d-none"));
+        OutEl.classList.remove("d-none");
         ErrFeedbackDiv.textContent = "";
         DataSetDiv.textContent = SortedArr.join(", ");
         ArithmeticMeanDiv.textContent = isInteger(ARITHMETIC_MEAN * 1e6)
@@ -152,13 +152,13 @@ async function main() {
           ? STANDARD_DEVIATION.toString()
           : STANDARD_DEVIATION.toFixed(6);
       } catch (err) {
-        OutGroupDivs.forEach((el) => el.classList.add("d-none"));
+        OutEl.classList.add("d-none");
         ErrFeedbackDiv.textContent =
           err instanceof Error ? err.message : String(err);
       }
     });
   } catch (err) {
-    OutGroupDivs.forEach((el) => el.classList.add("d-none"));
+    OutEl.classList.add("d-none");
     ErrFeedbackDiv.textContent =
       err instanceof Error ? err.message : String(err);
   }
