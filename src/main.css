@@ -20,7 +20,7 @@ main {
 
 #out {
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr repeat(11, 3rem);
+  grid-template-rows: 1fr repeat(12, 3.2rem);
   gap: 1rem;
 }
 
@@ -39,7 +39,7 @@ small {
 @media screen and (min-width: 768px) {
   #out {
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 1fr repeat(6, 3rem);
+    grid-template-rows: 1fr repeat(6, 3.2rem);
     gap: 2rem;
   }
 }
@@ -47,6 +47,6 @@ small {
 @media screen and (min-width: 1365px) {
   #out {
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 1fr repeat(3, 3rem);
+    grid-template-rows: 1fr repeat(4, 3.2rem);
   }
 }
