@@ -23,13 +23,12 @@ module.exports = {
     rules: [
       {
         test: /\.ts$/i,
-        // use: ["babel-loader", "ts-loader"],
-        use: ["ts-loader"],
+        use: ["babel-loader", "ts-loader"],
         exclude: /node_modules/,
       },
       {
         test: /\.js$/i,
-        // use: "babel-loader",
+        use: "babel-loader",
         exclude: /node_modules/,
       },
       {
