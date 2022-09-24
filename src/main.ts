@@ -39,12 +39,13 @@ async function main() {
     SampleRadio = document.querySelector(
       "#sample-pop-sample"
     ) as HTMLInputElement,
+    ErrFeedbackDiv = document.querySelector("#err-feedback") as HTMLElement,
+    OutEl = document.querySelector("#out") as HTMLElement,
     DataSetDiv = document.querySelector("#data-set") as HTMLElement,
+    CoutDiv = document.querySelector("#cout") as HTMLElement,
     ArithmeticMeanDiv = document.querySelector(
       "#arithmetic-mean"
     ) as HTMLElement,
-    ErrFeedbackDiv = document.querySelector("#err-feedback") as HTMLElement,
-    OutEl = document.querySelector("#out") as HTMLElement,
     HarmonicMeanDiv = document.querySelector("#harmonic-mean") as HTMLElement,
     GeometricMeanDiv = document.querySelector("#geometric-mean") as HTMLElement,
     MedianDiv = document.querySelector("#median") as HTMLElement,
@@ -126,6 +127,7 @@ async function main() {
         OutEl.classList.remove("d-none");
         ErrFeedbackDiv.textContent = "";
         DataSetDiv.textContent = SortedArr.join(", ");
+        CoutDiv.textContent = SortedArr.length.toString();
         ArithmeticMeanDiv.textContent = isInteger(ARITHMETIC_MEAN * 1e6)
           ? ARITHMETIC_MEAN.toString()
           : ARITHMETIC_MEAN.toFixed(6);
