@@ -1,0 +1,52 @@
+html,
+body {
+  margin: 1rem min(2rem, 5vw);
+  font-size: 18px;
+}
+
+main {
+  max-width: 1300px;
+  margin: auto;
+}
+
+.btn {
+  width: 7rem;
+}
+
+#numbers-input {
+  max-width: 100%;
+  padding: 0.3rem;
+}
+
+#out {
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(9, 1fr);
+  gap: 1rem;
+}
+
+.out-label {
+  font-weight: bold;
+}
+
+.out-value {
+  min-height: 1.5rem;
+}
+
+small {
+  font-size: smaller;
+}
+
+@media screen and (min-width: 768px) {
+  #out {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 2rem;
+  }
+}
+
+@media screen and (min-width: 1365px) {
+  #out {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+}
