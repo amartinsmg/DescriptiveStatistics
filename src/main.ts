@@ -67,6 +67,9 @@ async function main() {
             if (code) throw `Exit code ${code}`;
           },
         },
+        env: {
+          power: (x: number, n: number) => x ** n,
+        },
       }),
       {
         memory,
@@ -96,20 +99,21 @@ async function main() {
           ),
           NumbersArr = new Float64Array(memory.buffer, 0, Numbers.length),
           NOfModes = new Uint32Array(memory.buffer, NumbersArr.byteLength),
-          SAMPLE = SampleRadio.checked;
+          SAMPLE = SampleRadio.checked,
+          NO_ZEROS = !Numbers.includes(0),
+          NO_NEGATIVES = Numbers.filter((n) => n < 0).length == 0,
+          NO_POSITIVES = Numbers.filter((n) => n > 0).length == 0;
         NumbersArr.set(Numbers);
         const Args: [number, number] = [
             NumbersArr.byteOffset,
             NumbersArr.length,
           ],
-          SortedArr = getArray(
-            memory.buffer,
-            sort(NumbersArr.byteOffset, NumbersArr.length),
-            NumbersArr.length
-          ),
+          SortedArr = getArray(memory.buffer, sort(...Args), NumbersArr.length),
           ARITHMETIC_MEAN = mean(...Args),
-          GEOMETRIC_MEAN = geometricMean(...Args),
-          HARMONIC_MEAN = harmonicMean(...Args),
+          GEOMETRIC_MEAN =
+            NO_NEGATIVES || NO_POSITIVES ? geometricMean(...Args) : NaN,
+          HARMONIC_MEAN =
+            NO_ZEROS && NO_NEGATIVES ? harmonicMean(...Args) : NaN,
           MEDIAN = median(...Args),
           Mode = getArray(
             memory.buffer,
@@ -128,15 +132,22 @@ async function main() {
         ErrFeedbackDiv.textContent = "";
         DataSetDiv.textContent = SortedArr.join(", ");
         CoutDiv.textContent = SortedArr.length.toString();
-        ArithmeticMeanDiv.textContent = isInteger(ARITHMETIC_MEAN * 1e6)
-          ? ARITHMETIC_MEAN.toString()
-          : ARITHMETIC_MEAN.toFixed(6);
-        GeometricMeanDiv.textContent = isInteger(GEOMETRIC_MEAN * 1e6)
-          ? GEOMETRIC_MEAN.toString()
-          : GEOMETRIC_MEAN.toFixed(6);
-        HarmonicMeanDiv.textContent = isInteger(HARMONIC_MEAN * 1e6)
-          ? HARMONIC_MEAN.toString()
-          : HARMONIC_MEAN.toFixed(6);
+        ArithmeticMeanDiv.textContent = isFinite(GEOMETRIC_MEAN)
+          ? isInteger(ARITHMETIC_MEAN * 1e6)
+            ? ARITHMETIC_MEAN.toString()
+            : ARITHMETIC_MEAN.toFixed(6)
+          : "-";
+        GeometricMeanDiv.textContent =
+          isFinite(GEOMETRIC_MEAN) && !isNaN(GEOMETRIC_MEAN)
+            ? isInteger(GEOMETRIC_MEAN * 1e6)
+              ? GEOMETRIC_MEAN.toString()
+              : GEOMETRIC_MEAN.toFixed(6)
+            : "-";
+        HarmonicMeanDiv.textContent = !isNaN(HARMONIC_MEAN)
+          ? isInteger(HARMONIC_MEAN * 1e6)
+            ? HARMONIC_MEAN.toString()
+            : HARMONIC_MEAN.toFixed(6)
+          : "-";
         MedianDiv.textContent = MEDIAN.toString();
         ModeDiv.textContent = Mode.join(", ");
         MinDiv.textContent = MIN.toString();
@@ -147,12 +158,16 @@ async function main() {
         MidrangeDiv.textContent = isInteger(MIDRANGE * 1e6)
           ? MIDRANGE.toString()
           : MIDRANGE.toFixed(6);
-        ArithmeticVarianceDiv.textContent = isInteger(VARIANCE * 1e6)
-          ? VARIANCE.toString()
-          : VARIANCE.toFixed(6);
-        ArithmeticSDDiv.textContent = isInteger(STANDARD_DEVIATION * 1e6)
-          ? STANDARD_DEVIATION.toString()
-          : STANDARD_DEVIATION.toFixed(6);
+        ArithmeticVarianceDiv.textContent = isFinite(VARIANCE)
+          ? isInteger(VARIANCE * 1e6)
+            ? VARIANCE.toString()
+            : VARIANCE.toFixed(6)
+          : "-";
+        ArithmeticSDDiv.textContent = isFinite(STANDARD_DEVIATION)
+          ? isInteger(STANDARD_DEVIATION * 1e6)
+            ? STANDARD_DEVIATION.toString()
+            : STANDARD_DEVIATION.toFixed(6)
+          : "-";
       } catch (err) {
         OutEl.classList.add("d-none");
         ErrFeedbackDiv.textContent =
