@@ -13,7 +13,7 @@ dir-debug:
 # Get the diretory math if there is no
 
 lib: 
-	bash getlib.sh
+	bash get_lib.sh
 
 # Compile C source code to bynary code in WebAssembly format
 
