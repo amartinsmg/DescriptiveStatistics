@@ -5,7 +5,7 @@
   "scripts": {
     "build": "npm run build:wasm && npm run build:ts",
     "build:ts": "webpack",
-    "build:wasm": "bash build_wasm.sh",
+    "build:wasm": "make",
     "dev": "npm run build:wasm && npm run dev:server",
     "dev:server": "webpack serve",
     "test": "node src/test/main.js"
