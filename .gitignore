@@ -1,4 +1,4 @@
-base
 build
+debug
+lib
 node_modules
-Makefile
