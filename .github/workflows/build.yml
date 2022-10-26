@@ -13,6 +13,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: latest
+      - uses: mymindstorm/setup-emsdk@v11
       - name: Build web-app
         run: |
           npm ci
