@@ -24,6 +24,9 @@ void (async function () {
           if (code) throw `Exit code ${code}`;
         },
       },
+      env: {
+        power: (x, n) => x ** n,
+      },
     }),
     {
       memory,
