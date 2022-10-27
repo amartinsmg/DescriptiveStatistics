@@ -8,7 +8,7 @@
     "build:wasm": "make",
     "dev": "npm run build:wasm && npm run dev:server",
     "dev:server": "webpack serve",
-    "test": "npm run build:wasm && node src/test/main.js"
+    "test": "node src/test/main.js"
   },
   "repository": {
     "type": "git",
