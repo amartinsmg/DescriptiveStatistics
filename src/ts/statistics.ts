@@ -1,8 +1,3 @@
-function nPercentOfX(x: number, n: number): number {
-  const result: number = (x / 100) * n;
-  return result;
-}
-
 export function mean(values: number[]): number {
   if (values.length == 0) throw "Insert an array with at least one number.";
   const sum = values.reduce((acc, val) => acc + val, 0),
