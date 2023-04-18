@@ -51,7 +51,10 @@ small {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(5, min-content);
   }
+<<<<<<< HEAD
   #out .out-group:last-child {
     grid-column: 1 / 4;
   }
+=======
+>>>>>>> 933d5bc18cc9e4ae32ea85ca55834eaf7be146de
 }
