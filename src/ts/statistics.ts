@@ -29,8 +29,8 @@ export function geometricMean(values: number[]): number {
     product *= Math.abs(values[i]);
   }
   const result = noNegatives
-      ? Math.pow(product,  1 / values.length)
-      : -Math.pow(product,  1 / values.length);
+    ? Math.pow(product, 1 / values.length)
+    : -Math.pow(product, 1 / values.length);
   return result;
 }
 
