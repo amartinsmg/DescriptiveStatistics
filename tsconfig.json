@@ -3,7 +3,6 @@
     "target": "ESNext",
     "module": "commonjs",
     "allowJs": true,
-    "checkJs": false,
     "strict": true
   },
   "include": ["src/**/*.ts"]
