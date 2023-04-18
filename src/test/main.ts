@@ -37,6 +37,5 @@ void (function () {
   assert(roundTo(standardDeviation(Arr), 6) == 1.150366);
   assert(roundTo(sampleVariance(Arr), 6) == 1.443645);
   assert(roundTo(sampleStandardDeviation(Arr), 6) == 1.201518);
-
   console.log("Passed all tests successfuly!");
 })();
