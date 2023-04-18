@@ -8,13 +8,13 @@ module.exports = {
   entry: "./src/main.ts",
   output: {
     filename: "assets/bundle.js",
-    path: path.resolve(__dirname, "build"),
+    path: path.resolve(__dirname, "dist"),
     assetModuleFilename: 'assets/[hash][ext]',
   },
   mode: "production",
   devServer: {
     static: {
-      directory: path.resolve(__dirname, "build"),
+      directory: path.resolve(__dirname, "dist"),
     },
     port: 8080,
     open: true,
