@@ -1,35 +1,17 @@
-require("./main.css");
-
-type func1 = (pointer: number, length: number) => number;
-type func2 = (pointer: number, length: number, nOfModes: number) => number;
-
-interface WasmInstaceExports {
-  memory: WebAssembly.Memory;
-  sort: func1;
-  mean: func1;
-  geometricMean: func1;
-  harmonicMean: func1;
-  median: func1;
-  mode: func2;
-  min: func1;
-  max: func1;
-  range: func1;
-  midrange: func1;
-  variance: func1;
-  standardDeviation: func1;
-  sampleVariance: func1;
-  sampleStandardDeviation: func1;
-}
-
-interface Utils {
-  getArray: (
-    buffer: ArrayBuffer,
-    byteOffset: number,
-    length: number
-  ) => number[];
-}
-
-const { getArray }: Utils = require("./utils");
+import "./main.css";
+import {
+  mean,
+  geometricMean,
+  harmonicMean,
+  median,
+  mode,
+  range,
+  midrange,
+  variance,
+  standardDeviation,
+  sampleVariance,
+  sampleStandardDeviation,
+} from "./ts/statistics";
 
 async function main() {
   const Form = document.querySelector("#input-form") as HTMLFormElement,
@@ -60,35 +42,6 @@ async function main() {
     ) as HTMLElement;
 
   try {
-    const WasmBuffer = await fetch("./assets/program.wasm"),
-      WasmModule = await WebAssembly.instantiateStreaming(WasmBuffer, {
-        wasi_snapshot_preview1: {
-          proc_exit: (code: number) => {
-            if (code) throw `Exit code ${code}`;
-          },
-        },
-        env: {
-          power: (x: number, n: number) => x ** n,
-        },
-      }),
-      {
-        memory,
-        sort,
-        mean,
-        variance,
-        geometricMean,
-        harmonicMean,
-        median,
-        mode,
-        min,
-        max,
-        range,
-        midrange,
-        standardDeviation,
-        sampleVariance,
-        sampleStandardDeviation,
-      }: WasmInstaceExports = WasmModule.instance.exports as any;
-
     Form.addEventListener("submit", (e) => {
       e.preventDefault();
       try {
@@ -97,42 +50,31 @@ async function main() {
           Numbers = StrNumbers.map((s) => parseFloat(s)).filter(
             (n) => !isNaN(n)
           ),
-          NumbersArr = new Float64Array(memory.buffer, 0, Numbers.length),
-          NOfModes = new Uint32Array(memory.buffer, NumbersArr.byteLength),
           SAMPLE = SampleRadio.checked,
           NO_ZEROS = !Numbers.includes(0),
           NO_NEGATIVES = Numbers.filter((n) => n < 0).length == 0,
-          NO_POSITIVES = Numbers.filter((n) => n > 0).length == 0;
-        NumbersArr.set(Numbers);
-        const Args: [number, number] = [
-            NumbersArr.byteOffset,
-            NumbersArr.length,
-          ],
-          SortedArr = getArray(memory.buffer, sort(...Args), NumbersArr.length),
-          ARITHMETIC_MEAN = mean(...Args),
+          NO_POSITIVES = Numbers.filter((n) => n > 0).length == 0,
+          SortedArr = Numbers.sort((a, b) => a - b),
+          ARITHMETIC_MEAN = mean(Numbers),
           GEOMETRIC_MEAN =
-            NO_NEGATIVES || NO_POSITIVES ? geometricMean(...Args) : NaN,
+            NO_NEGATIVES || NO_POSITIVES ? geometricMean(Numbers) : NaN,
           HARMONIC_MEAN =
-            NO_ZEROS && NO_NEGATIVES ? harmonicMean(...Args) : NaN,
-          MEDIAN = median(...Args),
-          Mode = getArray(
-            memory.buffer,
-            mode(...Args, NOfModes.byteOffset),
-            NOfModes[0]
-          ),
-          MIN = min(...Args),
-          MAX = max(...Args),
-          RANGE = range(...Args),
-          MIDRANGE = midrange(...Args),
-          VARIANCE = SAMPLE ? sampleVariance(...Args) : variance(...Args),
+            NO_ZEROS && NO_NEGATIVES ? harmonicMean(Numbers) : NaN,
+          MEDIAN = median(Numbers),
+          Mode = mode(Numbers),
+          MIN = Math.min(...Numbers),
+          MAX = Math.max(...Numbers),
+          RANGE = range(Numbers),
+          MIDRANGE = midrange(Numbers),
+          VARIANCE = SAMPLE ? sampleVariance(Numbers) : variance(Numbers),
           STANDARD_DEVIATION = SAMPLE
-            ? sampleStandardDeviation(...Args)
-            : standardDeviation(...Args);
+            ? sampleStandardDeviation(Numbers)
+            : standardDeviation(Numbers);
         OutEl.classList.remove("d-none");
         ErrFeedbackDiv.textContent = "";
         DataSetDiv.textContent = SortedArr.join(", ");
         CoutDiv.textContent = SortedArr.length.toString();
-        ArithmeticMeanDiv.textContent = isFinite(GEOMETRIC_MEAN)
+        ArithmeticMeanDiv.textContent = isFinite(ARITHMETIC_MEAN)
           ? isInteger(ARITHMETIC_MEAN * 1e6)
             ? ARITHMETIC_MEAN.toString()
             : ARITHMETIC_MEAN.toFixed(6)
