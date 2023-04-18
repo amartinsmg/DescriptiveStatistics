@@ -25,10 +25,12 @@ main {
 }
 
 .out-label {
+  text-align: center;
   font-weight: bold;
 }
 
 .out-value {
+  text-align: center;
   min-height: 1.5rem;
 }
 
@@ -48,5 +50,8 @@ small {
   #out {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(5, min-content);
+  }
+  #out .out-group:last-child {
+    grid-column: 1/4;
   }
 }
