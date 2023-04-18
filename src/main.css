@@ -52,6 +52,6 @@ small {
     grid-template-rows: repeat(5, min-content);
   }
   #out .out-group:last-child {
-    grid-column: 1/4;
+    grid-column: 1 / 4;
   }
 }
