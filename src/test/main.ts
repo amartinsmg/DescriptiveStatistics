@@ -10,13 +10,27 @@ import {
   standardDeviation,
   sampleVariance,
   sampleStandardDeviation,
-} from "../ts/statistics";
+} from "../statistics";
+
+/**
+  Throws an error if the condition is false
+  @param condition - A boolean expression to be evaluated
+  @param message - An optional message to be displayed in the error
+  @throws - Error if the condition is false 
+ */
 
 function assert(condition: any, message?: string) {
   if (!condition) {
     throw new Error(message || "Assertion failed");
   }
 }
+
+/**
+  Rounds a number to a specified number of decimal places
+  @param num - The number to be rounded
+  @param decimalPlaces - The number of decimal places to round to
+  @return - The rounded number
+*/
 
 function roundTo(num: number, decimalPlaces: number): number {
   let base10 = 10 ** decimalPlaces,
