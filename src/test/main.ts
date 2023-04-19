@@ -44,7 +44,7 @@ void (function () {
   assert(roundTo(geometricMean(Arr), 6) == 8.405238);
   assert(roundTo(harmonicMean(Arr), 6) == 8.3227);
   assert(median(Arr) == 8.85);
-  assert(mode(Arr)[0] == 10);
+  assert(JSON.stringify(mode(Arr)) == JSON.stringify([10]));
   assert(roundTo(range(Arr), 6) == 3.28);
   assert(roundTo(midrange(Arr), 6) == 1.64);
   assert(roundTo(variance(Arr), 6) == 1.323341);
