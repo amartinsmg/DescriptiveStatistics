@@ -1,12 +1,12 @@
 export function mean(values: number[]): number {
-  if (values.length == 0) throw "Insert an array with at least one number.";
+  if (values.length == 0) throw new Error("Insert an array with at least one number.");
   const SUM = values.reduce((acc, val) => acc + val, 0),
     RESULT = SUM / values.length;
   return RESULT;
 }
 
 export function geometricMean(values: number[]): number {
-  if (values.length == 0) throw "Insert an array with at least one number.";
+  if (values.length == 0) throw new Error("Insert an array with at least one number.");
   const PRODUCT = values.reduce((acc, val) => acc * Math.abs(val), 1),
     NO_NEGATIVE_VALUES = values.every((a) => a >= 0),
     NO_POSITIVE_VALUES = values.every((a) => a <= 0);
@@ -20,7 +20,7 @@ export function geometricMean(values: number[]): number {
 }
 
 export function harmonicMean(values: number[]): number {
-  if (values.length == 0) throw "Insert an array with at least one number.";
+  if (values.length == 0) throw new Error("Insert an array with at least one number.");
   const SOME_ZEROS = values.includes(0);
   if (SOME_ZEROS) throw new Error("All values must be greater than zero.");
   const SUM = values.reduce((acc, val) => acc + 1 / val, 0),
@@ -29,7 +29,7 @@ export function harmonicMean(values: number[]): number {
 }
 
 export function median(values: number[]): number {
-  if (values.length == 0) throw "Insert an array with at least one number.";
+  if (values.length == 0) throw new Error("Insert an array with at least one number.");
   const SortedValues = values.sort((a, b) => a - b);
   if (SortedValues.length % 2) {
     return SortedValues[Math.floor(SortedValues.length / 2)];
@@ -43,7 +43,7 @@ export function median(values: number[]): number {
 }
 
 export function mode(values: number[]): number[] {
-  if (values.length == 0) throw "Insert an array with at least one number.";
+  if (values.length == 0) throw new Error("Insert an array with at least one number.");
   const Frequencies: Map<number, number> = new Map(
     Array.from(new Set(values)).map((num) => [num, 0])
   );
@@ -62,7 +62,7 @@ export function mode(values: number[]): number[] {
 }
 
 export function range(values: number[]): number {
-  if (values.length == 0) throw "Insert an array with at least one number.";
+  if (values.length == 0) throw new Error("Insert an array with at least one number.");
   const MIN_VALUE = Math.min(...values),
     MAX_VALUE = Math.max(...values),
     RESULT = MAX_VALUE - MIN_VALUE;
