@@ -30,8 +30,8 @@ export function geometricMean(values: number[]): number {
     throw new Error("The values must be either all positive or all negative.");
   }
   const RESULT = NO_NEGATIVE_VALUES
-    ?  PRODUCT ** (1 / values.length)
-    : - (PRODUCT ** (1 / values.length));
+    ? PRODUCT ** (1 / values.length)
+    : -(PRODUCT ** (1 / values.length));
   return RESULT;
 }
 
@@ -84,9 +84,7 @@ export function median(values: number[]): number {
 export function mode(values: number[]): number[] {
   if (values.length == 0)
     throw new Error("Insert an array with at least one number.");
-  const Frequencies: Map<number, number> = new Map(
-    Array.from(new Set(values)).map((num) => [num, 0])
-  );
+  const Frequencies: Map<number, number> = new Map();
   values.forEach((num) =>
     Frequencies.set(num, (Frequencies.get(num) ?? 0) + 1)
   );
