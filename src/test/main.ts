@@ -27,13 +27,19 @@ function assert(condition: any) {
   @param num - The number to be rounded
   @param decimalPlaces - The number of decimal places to round to
   @return - The rounded number
-*/
+ */
 
 function roundTo(num: number, decimalPlaces: number): number {
   let base10 = 10 ** decimalPlaces,
     result = Math.round(num * base10) / base10;
   return result;
 }
+
+/**
+  This function runs some tests to assert that the functions produce expected results.
+  The tests pass if all four assertions succeed. If any of the assertions fail, an error will be thrown.
+  Finally, a success message is logged to the console.
+ */
 
 void (function () {
   const Arr = [10, 6.8, 7.48, 7.2, 6.72, 9.14, 9.54, 8.7, 10, 9.25, 8, 9];
