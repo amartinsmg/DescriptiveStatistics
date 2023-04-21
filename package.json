@@ -7,16 +7,9 @@
     "dev": "webpack serve",
     "test": "ts-node src/test/main.ts"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/amartinsmg/DescriptiveStatistcs.git"
-  },
+  "repository": "git+https://github.com/amartinsmg/DescriptiveStatistcs.git",
   "author": "amartinsmg",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/amartinsmg/DescriptiveStatistcs/issues"
-  },
-  "homepage": "https://github.com/amartinsmg/DescriptiveStatistcs#readme",
   "devDependencies": {
     "@babel/core": "^7.18.6",
     "@babel/preset-env": "^7.18.6",
