@@ -37,7 +37,7 @@ function roundTo(num: number, decimalPlaces: number): number {
 
 /**
   This function runs some tests to assert that the functions produce expected results.
-  The tests pass if all four assertions succeed. If any of the assertions fail, an error will be thrown.
+  The tests pass if all eleven assertions succeed. If any of the assertions fail, an error will be thrown.
   Finally, a success message is logged to the console.
  */
 
