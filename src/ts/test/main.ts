@@ -13,9 +13,9 @@ import {
 } from "../statistics";
 
 /**
-  Throws an error if the condition is false
-  @param condition - A boolean expression to be evaluated
-  @throws - Error if the condition is false 
+  @brief Throws an error if the condition is false
+  @param condition A boolean expression to be evaluated
+  @throws Error if the condition is false 
  */
 
 function assert(condition: any) {
@@ -23,10 +23,10 @@ function assert(condition: any) {
 }
 
 /**
-  Rounds a number to a specified number of decimal places
-  @param num - The number to be rounded
-  @param decimalPlaces - The number of decimal places to round to
-  @return - The rounded number
+  @brief Rounds a number to a specified number of decimal places
+  @param num The number to be rounded
+  @param decimalPlaces The number of decimal places to round to
+  @return The rounded number
  */
 
 function roundTo(num: number, decimalPlaces: number): number {
@@ -36,6 +36,7 @@ function roundTo(num: number, decimalPlaces: number): number {
 }
 
 /**
+ * @brief Runs the tests
   This function runs some tests to assert that the functions produce expected results.
   The tests pass if all eleven assertions succeed. If any of the assertions fail, an error will be thrown.
   Finally, a success message is logged to the console.
