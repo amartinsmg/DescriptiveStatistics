@@ -11,7 +11,7 @@ import {
   standardDeviation,
   sampleVariance,
   sampleStandardDeviation,
-} from "./statistics";
+} from "./ts/statistics";
 
 // This is the main function that handles the form submit event to perform statistical calculations on the set of numerical data based on user input.
 
@@ -44,7 +44,7 @@ function main() {
     ) as HTMLElement;
 
   /**
-    This function handles the form submit event.
+    @brief Heandles the form submit event.
     @param e - The event object.
   */
   Form.addEventListener("submit", (e) => {
