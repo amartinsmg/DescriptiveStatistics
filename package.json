@@ -5,7 +5,7 @@
   "scripts": {
     "build": "webpack",
     "dev": "webpack serve",
-    "test": "ts-node src/test/main.ts"
+    "test": "ts-node src/ts/test/main.ts"
   },
   "repository": "git+https://github.com/amartinsmg/DescriptiveStatistcs.git",
   "author": "amartinsmg",
