@@ -15,14 +15,14 @@ export function mean(arr: number[]): number {
 /**
   @brief Calculates the geometric mean of an array of numbers
   @param arr An array of numbers
-  @throws If the input array is empty or if it contains both positive and negative values
+  @throws If the input array is empty or if it contains negative values
   @returns The geometric mean of the array
  */
 
 export function geometricMean(arr: number[]): number {
   if (!arr.length) throw new Error("Insert an array with at least one number.");
-  if (arr.filter((n) => n > 0).length && arr.filter((n) => n < 0).length)
-    throw new Error("The values must be either all positive or all negative.");
+  if (!arr.every((n) => n >= 0))
+    throw new Error("The values must be greater than or equal to zero.");
   const PRODUCT = arr.reduce((acc, n) => acc * n, 1),
     RESULT = PRODUCT ** (1 / arr.length);
   return RESULT;
@@ -31,13 +31,13 @@ export function geometricMean(arr: number[]): number {
 /**
   @brief Calculates the harmonic mean of an array of numbers
   @param arr An array of numbers
-  @throws If the input array is empty or if it contains zero values
+  @throws If the input array is empty or if it contains zero or negative values
   @returns The harmonic mean of the array
 */
 
 export function harmonicMean(arr: number[]): number {
   if (!arr.length) throw new Error("Insert an array with at least one number.");
-  if (arr.filter((n) => n <= 0).length)
+  if (!arr.every((n) => n > 0))
     throw new Error("All values must be greater than zero.");
   const SUM = arr.reduce((acc, n) => acc + 1 / n, 0),
     RESULT = arr.length / SUM;
@@ -54,10 +54,9 @@ export function harmonicMean(arr: number[]): number {
 export function median(arr: number[]): number {
   if (!arr.length) throw new Error("Insert an array with at least one number.");
   const SortedArr = arr.sort((a, b) => a - b),
+    MID = Math.floor(arr.length / 2),
     RESULT =
-      arr.length % 2
-        ? SortedArr[arr.length / 2]
-        : mean(SortedArr.slice(arr.length / 2 - 1, arr.length / 2 + 1));
+      arr.length % 2 ? SortedArr[MID] : mean(SortedArr.slice(MID - 1, MID + 1));
   return RESULT;
 }
 
