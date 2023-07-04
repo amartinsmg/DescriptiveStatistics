@@ -56,13 +56,9 @@ function main() {
         SAMPLE = SampleRadio.checked,
         NO_ZEROS = !Numbers.includes(0),
         NO_NEGATIVE_VALUES = Numbers.every((a) => a >= 0),
-        NO_POSITIVE_VALUES = Numbers.every((a) => a <= 0),
         SortedArr = Numbers.sort((a, b) => a - b),
         ARITHMETIC_MEAN = mean(Numbers),
-        GEOMETRIC_MEAN =
-          NO_NEGATIVE_VALUES || NO_POSITIVE_VALUES
-            ? geometricMean(Numbers)
-            : NaN,
+        GEOMETRIC_MEAN = NO_NEGATIVE_VALUES ? geometricMean(Numbers) : NaN,
         HARMONIC_MEAN =
           NO_ZEROS && NO_NEGATIVE_VALUES ? harmonicMean(Numbers) : NaN,
         MEDIAN = median(Numbers),
