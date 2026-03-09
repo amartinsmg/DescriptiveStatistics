@@ -7,51 +7,43 @@ body {
 main {
   max-width: 1300px;
   margin: auto;
+  padding-bottom: 2rem;
 }
 
 .btn {
   width: 7rem;
 }
 
-#numbers-input {
+#dataset-input {
   max-width: 100%;
   padding: 0.3rem;
 }
 
-#out {
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(13, min-content);
+.out-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   gap: 1rem;
 }
 
 .out-label {
-  text-align: center;
+  text-align: right;
   font-weight: bold;
+  width: 50%;
 }
 
 .out-value {
-  text-align: center;
+  text-align: left;
   min-height: 1.5rem;
+  width: 50%;
+}
+
+#sorted-dataset {
+  max-height: 40vh;
+  overflow-y: auto;
 }
 
 small {
   font-size: smaller;
-}
-
-@media screen and (min-width: 768px) {
-  #out {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(7, min-content);
-    gap: 2rem;
-  }
-}
-
-@media screen and (min-width: 1365px) {
-  #out {
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(5, min-content);
-  }
-  #out .out-group:last-child {
-    grid-column: 1 / 4;
-  }
 }
