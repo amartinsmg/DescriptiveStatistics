@@ -1,168 +1,155 @@
 /**
   @brief Calculates the mean value of an array of numbers
   @param arr An array of numbers
-  @throws If the input array is empty
   @returns The mean value of the array
 */
 
 export function mean(arr: number[]): number {
-  if (!arr.length) throw new Error("Insert an array with at least one number.");
-  const SUM = arr.reduce((acc, n) => acc + n, 0),
-    RESULT = SUM / arr.length;
-  return RESULT;
+  if (!arr.length) return NaN;
+  const sum = arr.reduce((acc, n) => acc + n, 0),
+    result = sum / arr.length;
+  return result;
 }
 
 /**
   @brief Calculates the geometric mean of an array of numbers
   @param arr An array of numbers
-  @throws If the input array is empty or if it contains negative values
   @returns The geometric mean of the array
  */
 
 export function geometricMean(arr: number[]): number {
-  if (!arr.length) throw new Error("Insert an array with at least one number.");
-  if (!arr.every((n) => n >= 0))
-    throw new Error("The values must be greater than or equal to zero.");
-  const PRODUCT = arr.reduce((acc, n) => acc * n, 1),
-    RESULT = PRODUCT ** (1 / arr.length);
-  return RESULT;
+  if (!arr.length || !arr.every((n) => n >= 0)) return NaN;
+  const somaLog = arr.reduce((acc, n) => acc + Math.log(n), 0),
+    gMeanLog = somaLog / arr.length,
+    result = Math.exp(gMeanLog);
+  return result;
 }
 
 /**
   @brief Calculates the harmonic mean of an array of numbers
   @param arr An array of numbers
-  @throws If the input array is empty or if it contains zero or negative values
   @returns The harmonic mean of the array
 */
 
 export function harmonicMean(arr: number[]): number {
-  if (!arr.length) throw new Error("Insert an array with at least one number.");
-  if (!arr.every((n) => n > 0))
-    throw new Error("All values must be greater than zero.");
-  const SUM = arr.reduce((acc, n) => acc + 1 / n, 0),
-    RESULT = arr.length / SUM;
-  return RESULT;
+  if (!arr.length || !arr.every((n) => n > 0)) return NaN;
+  const sum = arr.reduce((acc, n) => acc + 1 / n, 0),
+    result = arr.length / sum;
+  return result;
 }
 
 /**
   @brief Calculates the median value of an array of numbers
   @param arr An array of numbers
-  @throws If the input array is empty
   @returns The median value of the array
 */
 
 export function median(arr: number[]): number {
-  if (!arr.length) throw new Error("Insert an array with at least one number.");
-  const SortedArr = arr.sort((a, b) => a - b),
-    MID = Math.floor(arr.length / 2),
-    RESULT =
-      arr.length % 2 ? SortedArr[MID] : mean(SortedArr.slice(MID - 1, MID + 1));
-  return RESULT;
+  if (!arr.length) return NaN;
+  const sortedArr = arr.sort((a, b) => a - b),
+    mid = Math.floor(arr.length / 2),
+    result =
+      arr.length % 2 ? sortedArr[mid] : mean(sortedArr.slice(mid - 1, mid + 1));
+  return result;
 }
 
 /**
  @brief Calculates the mode(s) of an array of numbers
  @param arr An array of numbers
- @throws If the input array is empty
  @returns An array of the mode(s) of the array
 */
 
 export function mode(arr: number[]): number[] {
-  if (!arr.length) throw new Error("Insert an array with at least one number.");
+  if (!arr.length) return [];
   const Frequencies = new Map<number, number>(
       Array.from(new Set<number>(arr)).map((n) => [
         n,
         arr.filter((x) => x === n).length,
-      ])
+      ]),
     ),
-    MAX = Math.max(...Frequencies.values()),
-    MIN = Math.min(...Frequencies.values()),
-    Result =
-      MAX > MIN
+    max = Math.max(...Frequencies.values()),
+    min = Math.min(...Frequencies.values()),
+    result =
+      max > min
         ? Array.from(
             new Map(
               Array.from(Frequencies.entries()).filter(
-                ([, frequency]) => frequency == MAX
-              )
-            ).keys()
+                ([, frequency]) => frequency == max,
+              ),
+            ).keys(),
           )
         : [];
-  return Result;
+  return result;
 }
 
 /**
   @brief Calculates the range of a given array of numbers.
   @param arr An array of numbers.
-  @throws Error if the array is empty.
   @return The range of the given array.
 */
 
 export function range(arr: number[]): number {
-  const RESULT = Math.max(...arr) - Math.min(...arr);
-  return RESULT;
+  const result = Math.max(...arr) - Math.min(...arr);
+  return result;
 }
 
 /**
   @brief Calculates the midrange of a given array of numbers.
   @param arr An array of numbers.
-  @throws Error if the array is empty.
   @return The midrange of the given array.
 */
 
 export function midrange(arr: number[]): number {
-  const RESULT = range(arr) / 2;
-  return RESULT;
+  const result = range(arr) / 2;
+  return result;
 }
 
 /**
   @brief Calculates the variance of a given array of numbers.
   @param arr An array of numbers.
-  @throws Error if the array is empty.
   @return The variance of the given array.
 */
 
 export function variance(arr: number[]): number {
-  const MEAN = mean(arr),
-    SquaredDeviationsFromMEan = arr.map((n) => (n - MEAN) ** 2),
-    RESULT = mean(SquaredDeviationsFromMEan);
-  return RESULT;
+  const meanVal = mean(arr),
+    squaredDeviations = arr.map((n) => (n - meanVal) ** 2),
+    result = mean(squaredDeviations);
+  return result;
 }
 
 /**
   @brief Calculates the standard deviation of a given array of numbers.
   @param arr An array of numbers.
-  @throws Error if the array is empty.
   @return The standard deviation of the given array.
 */
 
 export function standardDeviation(arr: number[]): number {
-  const RESULT = Math.sqrt(variance(arr));
-  return RESULT;
+  const result = Math.sqrt(variance(arr));
+  return result;
 }
 
 /**
   @brief Calculates the sample variance of a given array of numbers.
   @param arr An array of numbers.
-  @throws Error if the array is empty.
   @return The sample variance of the given array.
 */
 
 export function sampleVariance(arr: number[]): number {
-  const MEAN = mean(arr),
-    SquaredDeviationsFromMEan = arr.map((n) => (n - MEAN) ** 2),
-    SUM = SquaredDeviationsFromMEan.reduce((acc, n) => acc + n, 0),
-    RESULT = SUM / (arr.length - 1);
-  return RESULT;
+  if (arr.length <= 1) return NaN;
+  const meanVal = mean(arr),
+    squaredDeviations = arr.map((n) => (n - meanVal) ** 2),
+    sum = squaredDeviations.reduce((acc, n) => acc + n, 0),
+    result = sum / (arr.length - 1);
+  return result;
 }
 
 /**
   @brief Calculates the sample standard deviation of a given array of numbers.
   @param arr An array of numbers.
-  @throws Error if the array is empty.
   @return The sample standard deviation of the given array.
 */
 
 export function sampleStandardDeviation(arr: number[]): number {
-  const RESULT = Math.sqrt(sampleVariance(arr));
-  return RESULT;
+  const result = Math.sqrt(sampleVariance(arr));
+  return result;
 }
