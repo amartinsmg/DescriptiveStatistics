@@ -1,7 +1,7 @@
 /**
-  @brief Calculates the mean value of an array of numbers
-  @param arr An array of numbers
-  @returns The mean value of the array
+ * Calculates the mean value of an array of numbers
+ * @param arr An array of numbers
+ * @returns The mean value of the array
 */
 
 export function mean(arr: number[]): number {
@@ -12,9 +12,9 @@ export function mean(arr: number[]): number {
 }
 
 /**
-  @brief Calculates the geometric mean of an array of numbers
-  @param arr An array of numbers
-  @returns The geometric mean of the array
+ * Calculates the geometric mean of an array of numbers
+ * @param arr An array of numbers
+ * @returns The geometric mean of the array
  */
 
 export function geometricMean(arr: number[]): number {
@@ -26,9 +26,9 @@ export function geometricMean(arr: number[]): number {
 }
 
 /**
-  @brief Calculates the harmonic mean of an array of numbers
-  @param arr An array of numbers
-  @returns The harmonic mean of the array
+ * Calculates the harmonic mean of an array of numbers
+ * @param arr An array of numbers
+ * @returns The harmonic mean of the array
 */
 
 export function harmonicMean(arr: number[]): number {
@@ -39,9 +39,9 @@ export function harmonicMean(arr: number[]): number {
 }
 
 /**
-  @brief Calculates the median value of an array of numbers
-  @param arr An array of numbers
-  @returns The median value of the array
+ * Calculates the median value of an array of numbers
+ * @param arr An array of numbers
+ * @returns The median value of the array
 */
 
 export function median(arr: number[]): number {
@@ -54,9 +54,9 @@ export function median(arr: number[]): number {
 }
 
 /**
- @brief Calculates the mode(s) of an array of numbers
- @param arr An array of numbers
- @returns An array of the mode(s) of the array
+ * Calculates the mode(s) of an array of numbers
+ * @param arr An array of numbers
+ * @returns An array of the mode(s) of the array
 */
 
 export function mode(arr: number[]): number[] {
@@ -83,9 +83,9 @@ export function mode(arr: number[]): number[] {
 }
 
 /**
-  @brief Calculates the range of a given array of numbers.
-  @param arr An array of numbers.
-  @return The range of the given array.
+ * Calculates the range of a given array of numbers.
+ * @param arr An array of numbers.
+ * @return The range of the given array.
 */
 
 export function range(arr: number[]): number {
@@ -94,9 +94,9 @@ export function range(arr: number[]): number {
 }
 
 /**
-  @brief Calculates the midrange of a given array of numbers.
-  @param arr An array of numbers.
-  @return The midrange of the given array.
+ * Calculates the midrange of a given array of numbers.
+ * @param arr An array of numbers.
+ * @return The midrange of the given array.
 */
 
 export function midrange(arr: number[]): number {
@@ -105,9 +105,9 @@ export function midrange(arr: number[]): number {
 }
 
 /**
-  @brief Calculates the variance of a given array of numbers.
-  @param arr An array of numbers.
-  @return The variance of the given array.
+ * Calculates the variance of a given array of numbers.
+ * @param arr An array of numbers.
+ * @return The variance of the given array.
 */
 
 export function variance(arr: number[]): number {
@@ -118,9 +118,9 @@ export function variance(arr: number[]): number {
 }
 
 /**
-  @brief Calculates the standard deviation of a given array of numbers.
-  @param arr An array of numbers.
-  @return The standard deviation of the given array.
+ * Calculates the standard deviation of a given array of numbers.
+ * @param arr An array of numbers.
+ * @return The standard deviation of the given array.
 */
 
 export function standardDeviation(arr: number[]): number {
@@ -129,9 +129,9 @@ export function standardDeviation(arr: number[]): number {
 }
 
 /**
-  @brief Calculates the sample variance of a given array of numbers.
-  @param arr An array of numbers.
-  @return The sample variance of the given array.
+ * Calculates the sample variance of a given array of numbers.
+ * @param arr An array of numbers.
+ * @return The sample variance of the given array.
 */
 
 export function sampleVariance(arr: number[]): number {
@@ -144,9 +144,9 @@ export function sampleVariance(arr: number[]): number {
 }
 
 /**
-  @brief Calculates the sample standard deviation of a given array of numbers.
-  @param arr An array of numbers.
-  @return The sample standard deviation of the given array.
+ * Calculates the sample standard deviation of a given array of numbers.
+ * @param arr An array of numbers.
+ * @return The sample standard deviation of the given array.
 */
 
 export function sampleStandardDeviation(arr: number[]): number {
