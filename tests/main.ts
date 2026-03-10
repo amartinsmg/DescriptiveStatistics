@@ -13,10 +13,10 @@ import {
 } from "../src/ts/statistics";
 
 /**
- @brief Rounds a number to a specified number of decimal places
- @param num The number to be rounded
- @param decimalPlaces The number of decimal places to round to
- @return The rounded number
+ * Rounds a number to a specified number of decimal places
+ * @param num The number to be rounded
+ * @param decimalPlaces The number of decimal places to round to
+ * @return The rounded number
  */
 
 function roundTo(num: number, decimalPlaces: number): number {
@@ -27,12 +27,12 @@ function roundTo(num: number, decimalPlaces: number): number {
 
 /**
  * Assert that two numbers are equal within a precision of 6 decimal places.
- * * @param actual - The numerical value produced by the system.
+ * @param actual - The numerical value produced by the system.
  * @param expected - The reference value to compare against.
- * * @remarks
+ * @remarks
  * The function uses `roundTo(n, 6)` to mitigate floating-point precision issues
  * before performing the equality check.
- * * @throws {Error} If the rounded `actual` value does not strictly equal `expected`.
+ * @throws {Error} If the rounded `actual` value does not strictly equal `expected`.
  */
 
 function assertSameValue(actual: number, expected: number) {
@@ -43,7 +43,6 @@ function assertSameValue(actual: number, expected: number) {
 
 /**
  * Asserts that two arrays are equal by comparing their JSON string representations.
- *
  * @param actual - The numerical array produced by the system.
  * @param expected - The reference array to compare against.
  * @throws {Error} If the `actual` array does not strictly equal `expected`.
@@ -59,7 +58,6 @@ function arrayCmp(actual: number[], expected: number[]) {
 }
 
 /**
- * @brief Runs the tests
   This function runs some tests to assert that the functions produce expected results.
   The tests pass if all eleven assertions succeed. If any of the assertions fail, an error will be thrown.
   Finally, a success message is logged to the console.
