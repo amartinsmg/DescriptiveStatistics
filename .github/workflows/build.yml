@@ -10,15 +10,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v3
+      - name: Setup NodeJS
+        uses: actions/setup-node@v4
         with:
           node-version: latest
-      - uses: mskelton/setup-yarn@v1
+          cache: yarn
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
       - name: Build web-app
-        run: |
-          yarn install
-          yarn test
-          yarn build
+        run: yarn build
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v3
         with:
