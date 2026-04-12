@@ -1,7 +1,7 @@
 {
   "name": "descriptive_statistics",
   "version": "2.0.0",
-  "main": "src/main.ts",
+  "main": "src/ts/main.ts",
   "scripts": {
     "build": "webpack",
     "dev": "webpack serve",
@@ -11,9 +11,6 @@
   "author": "amartinsmg",
   "license": "MIT",
   "devDependencies": {
-    "@babel/core": "^7.29.0",
-    "@babel/preset-env": "^7.29.0",
-    "babel-loader": "^10.1.0",
     "css-loader": "^7.1.4",
     "css-minimizer-webpack-plugin": "^8.0.0",
     "html-loader": "^5.1.0",
@@ -25,6 +22,5 @@
     "webpack": "^5.105.4",
     "webpack-cli": "^6.0.1",
     "webpack-dev-server": "^5.2.3"
-  },
-  "dependencies": {}
+  }
 }
