@@ -1,25 +1,69 @@
 # Descriptive Statistcs Calculator
 
-This is a web-based project that allows users to enter a set of numerical data, sort it, and perform various statistical calculations on it. The calculator provides a wide range of descriptive statistics, including the number of elements, arithmetic, geometric, and harmonic means, median, mode(s), maximum and minimum values, range, midrange, arithmetic variance, and standard deviation for either the population or the sample, depending on the option selected by the user.
+A streamlined web-based tool for comprehensive statistical analysis, covering everything from central tendency to dispersion.
 
-The calculator provides a user-friendly interface that allows users to easily input their data and choose the type of statistics they want to calculate. The sorted data is displayed on the screen, and all the calculated statistics are presented in an organized and easy-to-understand format.
+---
 
-With this project, users can quickly and efficiently analyze their data, gaining valuable insights into the characteristics and trends of their dataset. Whether for research, education, or personal interest, this calculator is a powerful tool for anyone looking to understand and analyze numerical data.
+## 🚀 Tech Stacks
 
-## How to run the project
+![TypeScript](https://img.shields.io/badge/TypeScript-000000?style=for-the-badge&logo=typescript)
+![BootStrap](https://img.shields.io/badge/Bootstrap-000000?style=for-the-badge&logo=bootstrap)
+![HTML5](https://img.shields.io/badge/HTML5-000000?style=for-the-badge&logo=html5)
+![CSS3](https://img.shields.io/badge/CSS3-000000?style=for-the-badge&logo=css)
+![Webpack](https://img.shields.io/badge/Webpack-000000?style=for-the-badge&logo=webpack)
+![Yarn](https://img.shields.io/badge/Yarn-000000?style=for-the-badge&logo=yarn)
 
-To build and run the project, follow these steps:
+---
 
-1. Clone this repository.
-2. Install the dependencies by running `yarn install`.
-3. Build the project by running `yarn build`.
+## 🎯 Project Overview
 
-After the build process is complete, you can open the index.html file located in the 'dist' directory in your web browser to use the calculator.
+This project is designed to simplify the analysis of numerical datasets. It automatically sorts input data and processes a wide range of descriptive statistics in real-time through a user-friendly interface.
 
-## License
+**Key Features:**
+
+- **Means**: Arithmetic, Geometric, and Harmonic.
+- **Central Tendency**: Median and Mode (supports amodal, unimodal, and multimodal sets).
+- **Extremes**: Maximum, Minimum, Range, and Midrange.
+- **Dispersion**: Variance and Standard Deviation (with toggle for Population or Sample).
+- **Dynamic UI**: Clean, responsive design for efficient data entry and visualization.
+
+---
+
+## 🛠️ Getting Started
+
+Ensure you have **Node.js** and **Yarn** installed on your machine.
+
+1. **Clone this repository:**
+
+```sh
+git clone https://github.com/amartinsmg/DescriptiveStatistics.git
+cd DescriptiveStatistics
+```
+
+2. **Install the dependencies:**
+
+```sh
+yarn install
+```
+
+3. **Run the development server:**
+
+```sh
+yarn dev
+```
+
+4. **Access the app:**
+   The Webpack server will be running at: http://localhost:8080
+
+---
+
+## 📄 License
 
 This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
 
 ## Contributing
 
-Contributions are welcome! If you find a bug or have a feature request, please open an issue or submit a pull request.
+Contributions, issues, and feature requests are welcome!
+
+- Found a bug? Open an **Issue**.
+- Want to improve the code? Submit a **Pull Request**.
