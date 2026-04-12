@@ -1,4 +1,5 @@
-import "./main.css";
+//@ts-ignore
+import "../css/style.css";
 import {
   mean,
   geometricMean,
@@ -11,7 +12,7 @@ import {
   standardDeviation,
   sampleVariance,
   sampleStandardDeviation,
-} from "./ts/statistics";
+} from "./statistics";
 
 function getStr(num: number): string {
   if (isFinite(num) && !isNaN(num)) return num.toString();
