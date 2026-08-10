@@ -1,5 +1,5 @@
 //@ts-ignore
-import "../css/style.css";
+import "./css/style.css";
 import {
   mean,
   geometricMean,
@@ -12,9 +12,9 @@ import {
   standardDeviation,
   sampleVariance,
   sampleStandardDeviation,
-} from "./ts/statistics";
+} from "./js/statistics";
 
-function getStr(num: number): string {
+function getStr(num) {
   if (isFinite(num) && !isNaN(num)) return num.toString();
   else return "-";
 }
@@ -22,32 +22,32 @@ function getStr(num: number): string {
 // This is the main function that handles the form submit event to perform statistical calculations on the set of numerical data based on user input.
 
 function main() {
-  const form = document.querySelector("#input-form") as HTMLFormElement,
+  const form = document.querySelector("#input-form"),
     datasetInput = document.querySelector(
       "#dataset-input",
-    ) as HTMLTextAreaElement,
+    ),
     sampleRatio = document.querySelector(
       "#sample-pop-sample",
-    ) as HTMLInputElement,
-    errFeedbackDiv = document.querySelector("#err-feedback") as HTMLElement,
-    outElement = document.querySelector("#out") as HTMLElement,
-    sortedDtsDiv = document.querySelector("#sorted-dataset") as HTMLElement,
-    coutDiv = document.querySelector("#cout") as HTMLElement,
-    minDiv = document.querySelector("#min") as HTMLElement,
-    maxDiv = document.querySelector("#max") as HTMLElement,
-    rangeDiv = document.querySelector("#range") as HTMLElement,
-    midrangeDiv = document.querySelector("#midrange") as HTMLElement,
+    ),
+    errFeedbackDiv = document.querySelector("#err-feedback"),
+    outElement = document.querySelector("#out"),
+    sortedDtsDiv = document.querySelector("#sorted-dataset"),
+    coutDiv = document.querySelector("#cout"),
+    minDiv = document.querySelector("#min"),
+    maxDiv = document.querySelector("#max"),
+    rangeDiv = document.querySelector("#range"),
+    midrangeDiv = document.querySelector("#midrange"),
     arithmeticMeanDiv = document.querySelector(
       "#arithmetic-mean",
-    ) as HTMLElement,
-    medianDiv = document.querySelector("#median") as HTMLElement,
-    modeDiv = document.querySelector("#mode") as HTMLElement,
-    arithmeticVarianceDiv = document.querySelector("#variance") as HTMLElement,
+    ),
+    medianDiv = document.querySelector("#median"),
+    modeDiv = document.querySelector("#mode"),
+    arithmeticVarianceDiv = document.querySelector("#variance"),
     arithmeticStdDevDiv = document.querySelector(
       "#standard-deviation",
-    ) as HTMLElement,
-    harmonicMeanDiv = document.querySelector("#harmonic-mean") as HTMLElement,
-    geometricMeanDiv = document.querySelector("#geometric-mean") as HTMLElement;
+    ),
+    harmonicMeanDiv = document.querySelector("#harmonic-mean"),
+    geometricMeanDiv = document.querySelector("#geometric-mean");
 
   /**
    * Heandles the form submit event.
