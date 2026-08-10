@@ -6,11 +6,11 @@ A streamlined web-based tool for comprehensive statistical analysis, covering ev
 
 ## 🚀 Tech Stacks
 
-![TypeScript](https://img.shields.io/badge/TypeScript-000000?style=for-the-badge&logo=typescript)
+![JavaScript](https://img.shields.io/badge/JavaScript-000000?style=for-the-badge&logo=javascript)
 ![BootStrap](https://img.shields.io/badge/Bootstrap-000000?style=for-the-badge&logo=bootstrap)
 ![HTML5](https://img.shields.io/badge/HTML5-000000?style=for-the-badge&logo=html5)
 ![CSS3](https://img.shields.io/badge/CSS3-000000?style=for-the-badge&logo=css)
-![Webpack](https://img.shields.io/badge/Webpack-000000?style=for-the-badge&logo=webpack)
+![Vite](https://img.shields.io/badge/Vite-000000?style=for-the-badge&logo=vite)
 ![Yarn](https://img.shields.io/badge/Yarn-000000?style=for-the-badge&logo=yarn)
 
 ---
@@ -53,7 +53,7 @@ yarn dev
 ```
 
 4. **Access the app:**
-   The Webpack server will be running at: http://localhost:8080
+   The Vite development server will be running at: http://localhost:5173
 
 ---
 
