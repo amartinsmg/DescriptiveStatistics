@@ -1,5 +1,3 @@
-//@ts-ignore
-import "./css/style.css";
 import {
   mean,
   geometricMean,
