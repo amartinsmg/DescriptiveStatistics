@@ -10,7 +10,7 @@ import {
   standardDeviation,
   sampleVariance,
   sampleStandardDeviation,
-} from "../src/ts/statistics";
+} from "../src/js/statistics.js";
 
 /**
  * Rounds a number to a specified number of decimal places
@@ -19,7 +19,7 @@ import {
  * @return The rounded number
  */
 
-function roundTo(num: number, decimalPlaces: number): number {
+function roundTo(num, decimalPlaces) {
   let base10 = 10 ** decimalPlaces,
     result = Math.round(num * base10) / base10;
   return result;
@@ -35,7 +35,7 @@ function roundTo(num: number, decimalPlaces: number): number {
  * @throws {Error} If the rounded `actual` value does not strictly equal `expected`.
  */
 
-function assertSameValue(actual: number, expected: number) {
+function assertSameValue(actual, expected) {
   const condition = roundTo(actual, 6) === expected;
   if (!condition)
     throw new Error(`Test failed: Expected: ${expected}, received: ${actual}`);
@@ -48,7 +48,7 @@ function assertSameValue(actual: number, expected: number) {
  * @throws {Error} If the `actual` array does not strictly equal `expected`.
  */
 
-function arrayCmp(actual: number[], expected: number[]) {
+function arrayCmp(actual, expected) {
   const actualStr = JSON.stringify(actual),
     expectedStr = JSON.stringify(expected);
   if (actualStr !== expectedStr)
