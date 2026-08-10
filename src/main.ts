@@ -12,7 +12,7 @@ import {
   standardDeviation,
   sampleVariance,
   sampleStandardDeviation,
-} from "./statistics";
+} from "./ts/statistics";
 
 function getStr(num: number): string {
   if (isFinite(num) && !isNaN(num)) return num.toString();

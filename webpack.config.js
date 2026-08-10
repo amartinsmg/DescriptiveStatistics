@@ -13,7 +13,7 @@ module.exports = {
     The entry point for the application.
    */
 
-  entry: "./src/ts/main.ts",
+  entry: "./src/main.ts",
 
   /**
     The output configuration for the bundled files.
